@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OPP_4
+{
+    class Flight
+    {
+        public int Number { get; set; }
+        public string Time { get; set; }
+        public string Destination { get; set; }
+        public List<Ticket> LSaleTicket { get; set; }
+        public List<Ticket> LTicket { get; set; }
+
+        
+        private const int CountAllTicket = 150; 
+
+
+        public Flight(int number, string destin, string time)
+        {
+            Time = time;
+            Destination = destin;
+            LSaleTicket = new List<Ticket>();
+
+            LTicket = new List<Ticket>(CountAllTicket - 1);
+            for (int i = 0; i < CountAllTicket - 1; i++)
+            {
+                LTicket.Add(new Ticket());
+                LTicket[i].Number = i + 1;
+            }
+        }
+    }
+}
