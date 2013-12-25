@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace OPP_4
+{
+    public partial class FormReturn : Form
+    {
+        public FormReturn()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_Return_Click(object sender, EventArgs e)
+        {
+            if (numericUpDown_NumverTicket.Value > 0)
+            {
+                Controller.numberTicket = (int)numericUpDown_NumverTicket.Value;
+                Controller.flightSelected.LTicket.Add(Controller.flightSelected.LSaleTicket.Find(Controller.FoundTicket));
+                Controller.flightSelected.LSaleTicket.RemoveAll(Controller.FoundTicket);
+            }
+        }
+    }
+}
