@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace OPP_4
+{
+    public partial class FormSaleTicket : Form
+    {
+        public FormSaleTicket()
+        {
+            InitializeComponent();
+        }
+
+        private void FormSaleTicket_Load(object sender, EventArgs e)
+        {
+            FillComboBox();
+        }
+
+        private void btn_Sale_Click(object sender, EventArgs e)
+        {
+            Controller.numberTicket = Int32.Parse(comboBox_NumbersTicket.Text);
+            Controller.flightSelected.LSaleTicket.Add(Controller.flightSelected.LTicket.Find(Controller.FoundTicket));
+            Controller.flightSelected.LTicket.RemoveAll(Controller.FoundTicket);
+            FillComboBox();
+        }
+
+        private void FillComboBox()
+        {
+            comboBox_NumbersTicket.Items.Clear();
+            comboBox_NumbersTicket.Text = "";
+            Controller.flightSelected.LTicket.Sort((ticket1,ticket2) => ticket1.Number.CompareTo(ticket2.Number));
+            for (int i = 0; i < Controller.flightSelected.LTicket.Count; i++)
+            {
+                comboBox_NumbersTicket.Items.Add(Controller.flightSelected.LTicket[i].Number);
+            }
+
+        }
+    }
+}
