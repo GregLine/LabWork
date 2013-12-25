@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace OPP_4
+{
+    public partial class FormSelect : Form
+    {
+        public FormSelect()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_SaleTicket_Click(object sender, EventArgs e)
+        {
+            FormSaleTicket fmSale = new FormSaleTicket();
+            fmSale.Show();
+        }
+
+        private void btn_ReturnTicket_Click(object sender, EventArgs e)
+        {
+            FormReturn fmRetn = new FormReturn();
+            fmRetn.Show();
+        }
+    }
+}
