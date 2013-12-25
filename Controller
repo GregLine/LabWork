@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OPP_4
+{
+    static class Controller
+    {
+        public static List<Flight> LFlight = new List<Flight>();
+        internal static Flight flightSelected;
+        public static int numberTicket;
+
+        public static bool FoundTicket(Ticket ticket)
+        {
+            if (ticket == null)
+                return false;
+            else if (numberTicket == ticket.Number)
+                return true;
+            else
+                return false;
+        }
+
+        
+        public static void CreateData()
+        {
+             
+            Flight fl1 = new Flight(203, "Москва", "02.01.2014 17:30");
+            Flight fl2 = new Flight(208, "Киев", "02.01.2014 18:00");
+            Flight fl3 = new Flight(105, "Лондон", "03.01.2014 16:30");
+            Flight fl4 = new Flight(304, "Нью-Йорк", "04.01.2014 19:00");
+
+            LFlight.Add(fl1);
+            LFlight.Add(fl2);
+            LFlight.Add(fl3);
+            LFlight.Add(fl4);
+        }
+
+
+    }
+}
